@@ -30,8 +30,8 @@ public class MealTo {
         return calories;
     }
 
-    public boolean isExceed() {
-        return exceed;
+    public boolean isExcess() {
+        return excess;
     }
 
     @Override
