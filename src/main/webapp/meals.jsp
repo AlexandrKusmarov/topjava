@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link href="WEB-INF/css/style.css" rel="stylesheet" type="text/css" />
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="t" uri="http://java.sun.com/jsp/jstl/core" %>
+<style><%@include file="WEB-INF/css/style.css"%></style>
+<html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title>Title</title>
 </head>
@@ -9,40 +11,30 @@
 <h2>Meals</h2>
 <table class="table_blur">
     <tr>
-        <th>Company</th>
-        <th>Q1</th>
-        <th>Q2</th>
-        <th>Q3</th>
-        <th>Q4</th>
+        <th>DateTime</th>
+        <th>Description</th>
+        <th>Calories</th>
+        <th>Excess</th>
     </tr>
-    <tr>
-        <td>Microsoft</td>
-        <td>20.3</td>
-        <td>30.5</td>
-        <td>23.5</td>
-        <td>40.3</td>
-    </tr>
-    <tr>
-        <td>Google</td>
-        <td>50.2</td>
-        <td>40.63</td>
-        <td>45.23</td>
-        <td>39.3</td>
-    </tr>
-    <tr>
-        <td>Apple</td>
-        <td>25.4</td>
-        <td>30.2</td>
-        <td>33.3</td>
-        <td>36.7</td>
-    </tr>
-    <tr>
-        <td>IBM</td>
-        <td>20.4</td>
-        <td>15.6</td>
-        <td>22.3</td>
-        <td>29.3</td>
-    </tr>
+    <tbody>
+    <c:forEach var="l" items="${list}">
+        <c:if test="${l.isExcess() == true}">
+          <td style="color: maroon"> ${l.getDateTime()}</td>
+          <td style="color: maroon"> ${l.getDescription()}</td>
+          <td style="color: maroon"> ${l.getCalories()}</td>
+          <td style="color: maroon"> ${l.isExcess()}</td>
+        </c:if>
+
+        <c:if test="${l.isExcess() == false}">
+        <td style="color: green"> ${l.getDateTime()}</td>
+        <td style="color: green"> ${l.getDescription()}</td>
+        <td style="color: green"> ${l.getCalories()}</td>
+        <td style="color: green"> ${l.isExcess()}</td>
+        </c:if>
+        <tr></tr>
+    </c:forEach>
+    </>
+    </tbody>
 </table>
 </body>
 </html>
