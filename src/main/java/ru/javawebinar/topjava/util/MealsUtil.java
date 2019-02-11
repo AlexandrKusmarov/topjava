@@ -18,13 +18,6 @@ import static java.util.stream.Collectors.toList;
 
 public class MealsUtil {
     public static void main(String[] args) {
-        MealsList meals = new MealsList();
-        List<MealTo> mealsWithExcess = getFilteredWithExcess(meals.getMeals(), LocalTime.of(7, 0), LocalTime.of(12, 0), 2000);
-        mealsWithExcess.forEach(System.out::println);
-
-        System.out.println(getFilteredWithExcessByCycle(meals.getMeals(), LocalTime.of(7, 0), LocalTime.of(12, 0), 2000));
-        System.out.println(getFilteredWithExcessInOnePass(meals.getMeals(), LocalTime.of(7, 0), LocalTime.of(12, 0), 2000));
-        System.out.println(getFilteredWithExcessInOnePass2(meals.getMeals(), LocalTime.of(7, 0), LocalTime.of(12, 0), 2000));
     }
 
     public static List<MealTo> getFilteredWithExcess(List<Meal> meals, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
