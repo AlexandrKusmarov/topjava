@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="t" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://sargue.net/jsptags/time" prefix="javatime" %>
 <style><%@include file="WEB-INF/css/style.css"%></style>
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
@@ -19,7 +20,8 @@
     <tbody>
     <c:forEach var="l" items="${list}">
         <c:if test="${l.isExcess() == true}">
-          <td style="color: maroon"> ${l.getDateTime()}</td>
+            <javatime:parseLocalDateTime value="${localDateTimeFormat}" pattern="yyyy-MM-dd" var="parsedDate" />
+          <td style="color: maroon"> ${parsedDate}</td>
           <td style="color: maroon"> ${l.getDescription()}</td>
           <td style="color: maroon"> ${l.getCalories()}</td>
           <td style="color: maroon"> ${l.isExcess()}</td>
