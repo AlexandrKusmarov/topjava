@@ -20,6 +20,21 @@ public class MealsUtil {
     public static void main(String[] args) {
     }
 
+    public static final int DEFAULT_CALORIES_PER_DAY = 2000;
+
+    public static List<MealTo> getWithExcess(Collection<Meal> meals, int caloriesPerDay) {
+        Map<LocalDate, Integer> caloriesSumByDate = meals.stream()
+                .collect(
+                        Collectors.groupingBy(Meal::getDate, Collectors.summingInt(Meal::getCalories))
+//                      Collectors.toMap(Meal::getDate, Meal::getCalories, Integer::sum)
+                );
+
+        return meals.stream()
+//                .filter(meal -> TimeUtil.isBetween(meal.getTime(), startTime, endTime))
+                .map(meal -> createWithExcess(meal, caloriesSumByDate.get(meal.getDate()) > caloriesPerDay))
+                .collect(Collectors.toList());
+    }
+
     public static List<MealTo> getFilteredWithExcess(List<Meal> meals, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
         Map<LocalDate, Integer> caloriesSumByDate = meals.stream()
                 .collect(
