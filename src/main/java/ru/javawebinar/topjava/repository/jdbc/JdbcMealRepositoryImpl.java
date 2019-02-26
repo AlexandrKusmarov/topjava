@@ -16,8 +16,7 @@ public class JdbcMealRepositoryImpl implements MealRepository {
     }
 
     @Override
-    public boolean delete(int id, int userId) {
-        return false;
+    public void delete(int id, int userId) {
     }
 
     @Override
