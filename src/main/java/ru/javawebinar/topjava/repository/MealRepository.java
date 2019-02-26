@@ -7,13 +7,13 @@ import java.util.Collection;
 import java.util.List;
 
 public interface MealRepository {
-    Meal save(Meal meal,int userId );
+    Meal save(Meal meal);
 
-    void delete(int id, int userId);
+    void delete(int id);
 
-    Meal get(int id, int userId);
+    Meal get(int id);
 
-    Collection<Meal> getAll(int userId);
+    Collection<Meal> getAll();
 
-    public List<Meal> getBetween(LocalDateTime startDate, LocalDateTime endDate, int userId);
+    public List<Meal> getBetween(LocalDateTime startDate, LocalDateTime endDate);
 }

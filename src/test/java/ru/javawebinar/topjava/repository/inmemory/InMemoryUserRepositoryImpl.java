@@ -17,6 +17,10 @@ public class InMemoryUserRepositoryImpl implements UserRepository {
     private Map<Integer, User> repository = new ConcurrentHashMap<>();
     private static final Logger log = LoggerFactory.getLogger(InMemoryUserRepositoryImpl.class);
 
+    public void init() {
+        
+    }
+
     @Override
     public boolean delete(int id) {
         log.info("delete {}", id);
@@ -56,6 +60,7 @@ public class InMemoryUserRepositoryImpl implements UserRepository {
         log.info("getByEmail {}", email);
         return getAll().stream().filter(user -> user.getEmail().equals(email)).findFirst().get();
     }
+
 
 
 }

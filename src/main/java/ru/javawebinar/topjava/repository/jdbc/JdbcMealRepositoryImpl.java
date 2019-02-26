@@ -11,26 +11,26 @@ import java.util.List;
 public class JdbcMealRepositoryImpl implements MealRepository {
 
     @Override
-    public Meal save(Meal meal, int userId) {
+    public Meal save(Meal meal ) {
         return null;
     }
 
     @Override
-    public void delete(int id, int userId) {
+    public void delete(int id) {
     }
 
     @Override
-    public Meal get(int id, int userId) {
+    public Meal get(int id) {
         return null;
     }
 
     @Override
-    public List<Meal> getAll(int userId) {
+    public List<Meal> getAll() {
         return null;
     }
 
     @Override
-    public List<Meal> getBetween(LocalDateTime startDate, LocalDateTime endDate, int userId) {
+    public List<Meal> getBetween(LocalDateTime startDate, LocalDateTime endDate) {
         return null;
     }
 }

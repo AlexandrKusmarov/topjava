@@ -52,7 +52,7 @@ public class InMemoryMealRepositoryImpl implements MealRepository {
     }
 
     @Override
-    public List<Meal> getBetween() {
+    public List<Meal> getBetween(LocalDateTime startDate, LocalDateTime endDate) {
         return null;
     }
 }
