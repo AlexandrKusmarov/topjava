@@ -22,31 +22,31 @@ public class MealServiceImpl implements MealService {
 
     @Override
     public Meal get(int id, int userId) {
-        return checkNotFoundWithId(repository.get(id, userId), id);
+        return checkNotFoundWithId(repository.get(id), userId );
     }
 
     @Override
     public void delete(int id, int userId) {
-        checkNotFoundWithId(repository.delete(id, userId), id);
+        repository.delete(id);
     }
 
     @Override
     public List<Meal> getBetweenDateTimes(LocalDateTime startDateTime, LocalDateTime endDateTime, int userId) {
-        return repository.getBetween(startDateTime, endDateTime, userId);
+        return repository.getBetween(startDateTime, endDateTime);
     }
 
     @Override
     public List<Meal> getAll(int userId) {
-        return repository.getAll(userId);
+        return (List<Meal>) repository.getAll();
     }
 
     @Override
     public void update(Meal meal, int userId) {
-        checkNotFoundWithId(repository.save(meal, userId), meal.getId());
+        checkNotFoundWithId(repository.save(meal), meal.getId());
     }
 
     @Override
     public Meal create(Meal meal, int userId) {
-        return repository.save(meal, userId);
+        return repository.save(meal);
     }
 }
