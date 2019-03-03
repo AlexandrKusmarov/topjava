@@ -37,11 +37,3 @@ CREATE TABLE meals (
 CREATE UNIQUE INDEX meals_unique_user_datetime_idx
   ON meals (user_id, date_time);
 
-CREATE TABLE meals
-(
-  date_time   TIMESTAMP WITH TIME ZONE NOT NULL,
-  description VARCHAR                  NOT NULL,
-  calories    VARCHAR                  NOT NULL,
-  meals_id    INTEGER DEFAULT nextval('global_seq'),
-  FOREIGN KEY (meals_id) REFERENCES users (id) ON DELETE CASCADE
-);
